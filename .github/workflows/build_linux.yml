@@ -19,7 +19,7 @@ jobs:
     
     - name: Prepare library
       run: |
-        mkdir ${{ env.INSTALL_PATH }}
+        mkdir -p ${{ env.INSTALL_PATH }}
         mkdir temp
         git clone https://github.com/axiomatic-systems/Bento4
         cp -r src/. temp
