@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  INSTALL_PATH: /home/runner/Mp4Decrypt
+  INSTALL_PATH: /home/runner/Mp4Decrypt/installed_lib
   
 jobs:
   build:
