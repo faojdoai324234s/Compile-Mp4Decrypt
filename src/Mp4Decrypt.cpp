@@ -1,4 +1,4 @@
-#include "Mp4Decrypt.h"
+#include "Mp4Decrypt.hpp"
 #include "Ap4CommonEncryption.h"
 
 #include <memory>
