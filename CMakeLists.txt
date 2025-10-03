@@ -9,6 +9,7 @@ set( CMAKE_CXX_STANDARD 17 )
 set( CMAKE_CXX_STANDARD_REQUIRED ON )
 set( CMAKE_CXX_EXTENSIONS OFF )
 set( CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS True )
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse4.2 -maes" )
 
 include_directories( include )
 
