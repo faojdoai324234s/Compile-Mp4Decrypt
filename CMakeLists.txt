@@ -12,7 +12,7 @@ set( CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS True )
 
 include_directories( include )
 
-file( GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp ${PROJECT_SOURCE_DIR}/src/*.hpp )
+file( GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp )
 
 set_property( DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${library_name} )
 
