@@ -15,10 +15,10 @@ public:
 	Mp4Decrypt& operator=(Mp4Decrypt&& other) = delete;
 
 	/// <summary>Constructs a new decryption processor.</summary>
-	explicit Mp4Decrypt();
+	explicit Mp4Decrypt() noexcept;
 
 	/// <summary>Destructor.</summary>
-	~Mp4Decrypt();
+	~Mp4Decrypt() noexcept;
 
 	/// <summary>Decrypts a buffer of data.</summary>
 	/// <param name="buffer">The encrypted buffer to decrypt. This buffer will be overriden with the new decrypted buffer.</param>
@@ -26,19 +26,19 @@ public:
 	/// <param name="key_id">The key ID. The key ID must be 16 bytes long (32 characters).</param>
 	/// <param name="key">The decryption key. The key must be 16 bytes long (32 characters).</param>
 	/// <returns>True if the operation succeeded, false otherwise.</returns>
-	bool decrypt(uint8_t* buffer, const uint64_t length, const std::string& key_id, const std::string& key);
+	bool decrypt(uint8_t* buffer, const uint64_t length, const std::string& key_id, const std::string& key) const;
 	
 
 private:
 	/// <summary>Allocate a memory block with alignment suitable for all memory accesses (including vectors if available on the CPU).</summary>
 	/// <param name="size">Size in bytes for the memory block to be allocated.</param>
 	/// <returns>Pointer to the allocated block, or `nullptr` if the block cannot be allocated.</returns>
-	void* av_malloc(size_t size);
+	void* av_malloc(size_t size) const;
 
 
 	/// <summary>Free a memory block which has been allocated with a function of av_malloc() or av_realloc() family.</summary>
 	/// <param name="ptr">Pointer to the memory block which should be freed.</param>
-	void av_free(void* ptr);
+	void av_free(void* ptr) const;
 
 
 private:
