@@ -14,6 +14,8 @@ if( UNIX AND NOT APPLE )
 endif()
 if( WIN32 AND ${LIBRARY_TYPE} MATCHES "SHARED" )
   set( CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS True )
+elseif( WIN32 AND ${LIBRARY_TYPE} MATCHES "STATIC" )
+  message( "Building static library..." )
 endif()
 
 include_directories( include )
