@@ -36,13 +36,16 @@ jobs:
         copy /y /v "Bento4\Source\C++\MetaData\*.h" src
         copy /y /v "Bento4\Source\C++\MetaData\*.cpp" src
         copy /y /v temp\*.cpp src
+        copy /y /v include upload\include\Mp4Decrypt
         
     - name: Build library
       shell: cmd
       run: |
+        cmake -B build -D CMAKE_BUILD_TYPE=Debug -G "Visual Studio 17" -D CMAKE_GENERATOR_TOOLSET=v141
+        cmake --build build --config Debug
+        copy /y /v build\Debug\Mp4Decrypt.lib upload\lib\Mp4Decryptd.lib
         cmake -B build -D CMAKE_BUILD_TYPE=Release -G "Visual Studio 17" -D CMAKE_GENERATOR_TOOLSET=v141
         cmake --build build --config Release
-        copy /y /v include upload\include\Mp4Decrypt
         copy /y /v build\Release\*.lib upload\lib
         
     - name: Upload artifact
