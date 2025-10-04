@@ -3,27 +3,17 @@
 
 #include <memory>
 
-
-/*----------------------------------------------------------------------
-|   Mp4Decrypt::Mp4Decrypt
-+---------------------------------------------------------------------*/
-Mp4Decrypt::Mp4Decrypt() {
+Mp4Decrypt::Mp4Decrypt() noexcept {
 	//
 }
 
 
-/*----------------------------------------------------------------------
-|   Mp4Decrypt::~Mp4Decrypt
-+---------------------------------------------------------------------*/
-Mp4Decrypt::~Mp4Decrypt() {
+Mp4Decrypt::~Mp4Decrypt() noexcept {
 	//
 }
 
 
-/*----------------------------------------------------------------------
-|   Mp4Decrypt::decrypt
-+---------------------------------------------------------------------*/
-bool Mp4Decrypt::decrypt(uint8_t* buffer, const uint64_t length, const std::string& key_id, const std::string& key) {
+bool Mp4Decrypt::decrypt(uint8_t* buffer, const uint64_t length, const std::string& key_id, const std::string& key) const {
 	
 	if (key.size() != 32 || key_id.size() != 32) {
 		return false;
@@ -75,10 +65,7 @@ bool Mp4Decrypt::decrypt(uint8_t* buffer, const uint64_t length, const std::stri
 }
 
 
-/*----------------------------------------------------------------------
-|   Mp4Decrypt::av_malloc
-+---------------------------------------------------------------------*/
-void* Mp4Decrypt::av_malloc(size_t size) {
+void* Mp4Decrypt::av_malloc(size_t size) const {
 	void* ptr = nullptr;
 
 	if (size > std::atomic_load_explicit(&max_alloc_size, std::memory_order_relaxed)) {
@@ -136,10 +123,7 @@ void* Mp4Decrypt::av_malloc(size_t size) {
 }
 
 
-/*----------------------------------------------------------------------
-|   Mp4Decrypt::av_free
-+---------------------------------------------------------------------*/
-void Mp4Decrypt::av_free(void* ptr) {
+void Mp4Decrypt::av_free(void* ptr) const {
 #if HAVE_ALIGNED_MALLOC
 	_aligned_free(ptr);
 #else
