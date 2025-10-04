@@ -51,7 +51,7 @@ private:
 
 
 private:
-	const std::atomic_size_t max_alloc_size = ATOMIC_VAR_INIT(INT64_MAX);
+	static constexpr std::atomic_size_t max_alloc_size = ATOMIC_VAR_INIT(INT64_MAX);
 };
 
 #endif // !_MP4DECRYPT_H
