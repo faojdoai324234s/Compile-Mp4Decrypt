@@ -44,6 +44,7 @@ jobs:
         cmake -B build -D CMAKE_BUILD_TYPE=Debug -G "Visual Studio 17" -D CMAKE_GENERATOR_TOOLSET=v141
         cmake --build build --config Debug
         copy /y /v build\Debug\Mp4Decrypt.lib upload\lib\Mp4Decryptd.lib
+        copy /y /v build\Debug\Mp4Decrypt.pdb upload\lib\Mp4Decryptd.pdb
         rmdir /s /q build
         cmake -B build -D CMAKE_BUILD_TYPE=Release -G "Visual Studio 17" -D CMAKE_GENERATOR_TOOLSET=v141
         cmake --build build --config Release
